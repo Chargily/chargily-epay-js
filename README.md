@@ -1,2 +1,2 @@
-# epay-gateway-js
+# epay-gateway-js (beta)
 Chargily ePay Gateway (JS Package)
