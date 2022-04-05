@@ -1,2 +1,2 @@
 # epay-gateway-nodejs (beta version)
-Chargily ePay Gateway (npm Package)
+Chargily ePay Gateway (Js Package)
