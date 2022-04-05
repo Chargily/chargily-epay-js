@@ -26,8 +26,8 @@ We do not recommend this option. But be careful to download the updated versions
 
 | key                   |  description                                                                                          | redirect url |  process url |
 |-----------------------|-------------------------------------------------------------------------------------------------------|--------------|--------------|
-| api_key               | must be string given by organization                                                                  |   required   |   required   |
-| api_secret            | must be string given by organization                                                                  |   required   |   required   |
+| CHARGILY_APP_KEY               | must be string given by organization                                                                  |   required   |   required   |
+| CHARGILY_APP_SECRET            | must be string given by organization                                                                  |   required   |   required   |
 | urls                  | must be array                                                                                         |   required   | not required |
 | urls[back_url]        | must be string and valid url                                                                          |   required   | not required |
 | urls[process_url]     | must be string and valid url                                                                          |   required   | not required |
