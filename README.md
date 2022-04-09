@@ -20,8 +20,7 @@ yarn add chargily-epay-gateway
 ```
 
 # Quick start
-2. Download as ZIP
-   We do not recommend this option. But be careful to download the updated versions every a while [Download](https://github.com/Chargily/epay-gateway-nodejs/releases/)
+Add `CHARGILY_APP_KEY` and `CHARGILY_APP_SECRET` in .env file with the secret key and app key from [ePay Dashboard][api-keys]
 
 #Usage
 The package needs to be configured with your account's secret key, which is
@@ -40,7 +39,7 @@ order.invoiceNumber = "100" // must be integer or string
 order.mode = Mode.EDAHABIA // or Mode.CIB
 order.backUrl = "https://www.exemple.org/" // must be a valid and active URL
 order.amount = 5000 // must be integer , and more or equal 75
-order.webhookUrl = "https://www.exemple.org/webhook" // this URL where receive the response 
+order.webhookUrl = "https://www.exemple.org/webhook-validator" // this URL where receive the response 
 order.client = "chawki mahdi" 
 order.discount = 10 // by percentage between [0, 100]
 order.appKey = process.env.CHARGILY_APP_KEY 
@@ -71,6 +70,28 @@ const checkoutUrl = chargily.createPayment(order).then( res => {
 | discount    | must be numeric and between 0 and 99  (discount in %)                                     |   required   | not required |
 | description  | must be string_                                                                                        |   required   | not required |
 
+# Testing Webhook signing
+You can use `DefaultSignatureValidator.isValid()` to validate incoming webhook.
+
+```js
+
+const {DefaultSignatureValidator} = require("chargily-epay-gateway/lib/Webhook");
+const express = require('express');
+const app = express()
+const port = 3000
+app.use(express.json());
+
+app.post('/webhook-validator', (req, res)=>{
+  let signature = req.header('Signature')
+
+   let rs = DefaultSignatureValidator.isValid(
+            signature, 
+            process.env.CHARGILY_APP_SECRET,
+            req.body) // return boolean
+   
+   res.send(rs)
+ })
+```
 
 
 [api-keys]: https://epay.chargily.com.dz/secure/admin/apikeys
