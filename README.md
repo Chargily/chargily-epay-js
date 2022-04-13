@@ -42,6 +42,7 @@ order.amount = 5000 // must be integer , and more or equal 75
 order.webhookUrl = "https://www.exemple.org/webhook-validator" // this URL where receive the response 
 order.client = "chawki mahdi" 
 order.discount = 10 // by percentage between [0, 100]
+order.clientEmail = "client@example.com" // email of customer where he will receive the Bill
 order.appKey = process.env.CHARGILY_APP_KEY 
 
 // createPayment is promise function (async, await ), so you will need to use then to receive the checkoutURL
@@ -65,7 +66,7 @@ const checkoutUrl = chargily.createPayment(order).then( res => {
 | mode                  | must be in **CIB**,**EDAHABIA**                                                                       |   required   | not required |
 | invoice_number       |  string or int                                                                                 |   required   | not required |
 | client_name  | string                                                                                        |   required   | not required |
-| client_email | must be valid email This is where client receive payment receipt after confirmation        |   required   | not required |
+| clientEmail | must be valid email This is where client receive payment receipt after confirmation        |   required   | not required |
 | amount      | must be numeric and greather or equal than  75                                                        |   required   | not required |
 | discount    | must be numeric and between 0 and 99  (discount in %)                                     |   required   | not required |
 | description  | must be string_                                                                                        |   required   | not required |
