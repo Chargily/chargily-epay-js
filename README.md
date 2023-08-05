@@ -14,9 +14,9 @@ Integrate ePayment gateway with Chargily easily.
 # Installation
 1. Via npm (Recomended)
 ```bash
-npm i chargily-epay-js
+npm i chargily-epay-gateway
 # or 
-yarn add chargily-epay-js
+yarn add chargily-epay-gateway
 ```
 
 # Quick start
@@ -28,9 +28,9 @@ available in the [ePay Dashboard][api-keys]. Require it with the key's
 value:
 
 ```js
-const chargily = require('chargily-epay-js')
+const chargily = require('chargily-epay-gateway')
 const dotenv = require('dotenv')
-const {Invoice, Mode} = require("chargily-epay-js/lib/configuration");
+const {Invoice, Mode} = require("chargily-epay-gateway/lib/configuration");
 
 dotenv.config()
 
@@ -76,7 +76,7 @@ You can use `DefaultSignatureValidator.isValid()` to validate incoming webhook.
 
 ```js
 
-const {DefaultSignatureValidator} = require("chargily-epay-js/lib/Webhook");
+const {DefaultSignatureValidator} = require("chargily-epay-gateway/lib/Webhook");
 const express = require('express');
 const app = express()
 const port = 3000
