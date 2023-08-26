@@ -1,4 +1,3 @@
-import axios from "axios";
 export enum Mode {
   CIB = "CIB",
   EDAHABIA = "EDAHABIA",
@@ -7,16 +6,15 @@ export enum Mode {
 export const EPAY_CHARGILY_URL = "http://epay.chargily.com.dz/api/invoice";
 
 export class Invoice {
-
-  protected invoice = {}
-  private _appKey: string
-  private _client: string
-  private _amount: number
-  private _discount: number
-  private _invoiceNumber: number
-  private _backUrl: string
-  private _webhookUrl: string
-  private _mode: Mode
+  protected invoice = {};
+  private _appKey: string;
+  private _client: string;
+  private _amount: number;
+  private _discount: number;
+  private _invoiceNumber: number;
+  private _backUrl: string;
+  private _webhookUrl: string;
+  private _mode: Mode;
 
   get appKey() {
     return this._appKey;
