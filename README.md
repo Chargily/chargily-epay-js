@@ -18,9 +18,9 @@ Integrate ePayment gateway with Chargily easily.
 1. Via npm (Recomended)
 
 ```bash
-npm i chargily-epay-js
+npm i chargily-epay-gateway
 # or
-yarn add chargily-epay-js
+yarn add chargily-epay-gateway
 ```
 
 # Quick start
